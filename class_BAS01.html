@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="google" content="notranslate">
+    <!-- Diable cache for Chrome -->
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="cache-control" content="no-store" />
+    <meta http-equiv="expires" content="-1" />
+    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+    <meta http-equiv="pragma" content="no-cache" />
+
+    <link rel="shortcut icon" href="image/favicon.png">
+    <link rel="icon" href="image/favicon.png" type="image/x-icon" />
+
+    <title>Class Sign-in Form _ soniali</title>
+</head>
+<body>
+    <div style="width:80%;margin:0px auto;">
+    <form action="#">    
+        <fieldset>
+        <legend>Class Sign-in Form</legend>
+        <div id="div_criteria">        
+            <legend >Query Criteria</legend>                                                    
+            <table style="width: 100%" border="1">
+                <tr>
+                    <td style="width: 15%" rowspan="2">Class：</td>
+                    <td style="width: 85%" >
+                        <select name="class">
+                          <option selected="selected" value="BS01">BS01-HTML</option>
+                          <option value="BS02">VS2013 Web AP</option>
+                        </select>
+                    </td>                                    
+                </tr>
+                <tr>                    
+                    <td >
+                        <table style="width: 100%" border="1">
+                            <tr>
+                                <td style="width: 15%" >Class Date：</td>
+                                <td style="width: 35%" ><input type="date" name="GRDate" id="txt_GRDate" value="2022-08-31"></td>
+                                <td style="width: 15%" >Trainer：</td>
+                                <td style="width: 35%" ><input type="text" name="GRDate" id="txt_GRDate" value="sonia"></td>                                
+                            </tr>
+                        </table>                        
+                    </td>                                 
+                </tr>                                           
+                <tr>
+                    <td  colspan="2">
+                        <button type="button">Query</button>
+                        <button type="button">Abort</button>
+                    </td>
+                </tr>
+            </table>
+        </div>        
+        <br><br>        
+        <div id="div_result">
+            <legend  >Query Result</legend>                                        
+            <table cellspacing="0" cellpadding="4" rules="all" border="1" width="100%">
+                <thead>
+                    <tr>
+                        <th >ClassName</th>
+                        <th >ClassDate</th>
+                        <th >Trainee</th>
+                        <th >Sign-in</th>
+                        <th >Homework(%)</th>
+                    </tr>                    
+                </thead>
+                <tbody>
+                <tr>
+                    <td >BAS01_HTML vs. IIS web site</td>
+                    <td >2022/08/28</td>
+                    <td >Sonia</td>
+                    <td ><input type="checkbox" checked id="chk_signin_1" name="chk_signin"/></td>
+                    <td >20%</td>
+                </tr>
+                <tr>
+                    <td >BAS02_VS2013 Web Application</td>
+                    <td >2022/09/06</td>
+                    <td >Sonia</td>
+                    <td ><input type="checkbox" id="chk_signin_1" name="chk_signin"/></td>
+                    <td >&nbsp;</td>
+                </tr>
+                </tbody>
+            </table>            
+        </div> 
+        <br><br>                
+        <div id="div_entry">       
+            <legend  >Entry/Change</legend>                                                                                 
+            <table style="width: 100%" border="1">
+                <tr>
+                    <td style="width: 15%"  rowspan="2">Class：</td>
+                    <td style="width: 85%" >
+                        <select name="class">
+                          <option selected="selected" value="BS01">BS01-HTML</option>
+                          <option value="BS02">VS2013 Web AP</option>
+                        </select>
+                    </td>                                    
+                </tr>
+                <tr>                    
+                    <td >
+                        <table style="width: 100%" border="1">
+                            <tr>
+                                <td style="width: 15%" >Class Date：</td>
+                                <td style="width: 35%" ><input  type="date" name="GRDate" id="txt_GRDate" value="2022/8/31"></td>
+                                <td style="width: 15%" >Trainer：</td>
+                                <td style="width: 35%" ><input  type="text" name="GRDate" id="txt_GRDate" value="sonia"></td>                                
+                            </tr>
+                        </table>                        
+                    </td>                                 
+                </tr>                                           
+                <tr>
+                    <td style="width: 15%"  rowspan="2">Trainee：</td>
+                    <td style="width: 85%" >
+                        <select name="class">
+                          <option selected="selected" value="link">link</option>
+                          <option value="stanleyl">stanleyl</option>
+                        </select>
+                    </td>                                    
+                </tr>
+                <tr>                    
+                    <td >
+                        <table style="width: 100%" border="1">
+                            <tr>
+                                <td style="width: 15%" >Sign-in：</td>
+                                <td style="width: 35%" ><input  type="checkbox" checked></td>
+                                <td style="width: 15%" >Homework(%):</td>
+                                <td style="width: 35%" ><input  type="number" name="GRDate" id="txt_GRDate" value="20"></td>                                
+                            </tr>
+                        </table>                        
+                    </td>                                 
+                </tr>   
+                <tr>
+                    <td colspan="2">
+                        <button type="button" >Save</button>
+                        <button type="button" >Abort</button>
+                    </td>
+                </tr>
+            </table>
+        </div>               
+        </fieldset>              
+    </form>   
+    </div>     
+</body>
+</html>
