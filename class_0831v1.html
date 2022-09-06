@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="../css/form/external_css.css" type="text/css" rel="stylesheet" />   
+    <style>
+    /* p {
+      color: darkgreen;
+    }     */
+    #p_info {
+      color: blue;
+    }
+    .p_warning {
+      color: rgb(255, 166, 0);    
+      margin-right: 150px;
+      margin-left: 80px;      
+    }
+    .p_padding {
+      color: rgb(255, 166, 0);    
+      padding-top: 30px;
+      padding-block: 30px;
+    }    
+    </style>
+</head>  
+<body>
+
+<!-- <h1>Grouping Form Data with Fieldset</h1>
+<h2>Grouping Form Data with Fieldset</h2>
+<h6>Grouping Form Data with Fieldset</h6> -->
+<!-- remark -->
+<p>The fieldset element is used to group related data in a form, and the legend element defines a caption for the fieldset element.</p>
+
+<form action="http://www.google.com">
+  <fieldset>
+    <legend>Personalia:</legend>
+    <label for="fname">First name:</label><br>
+    <input type="text" id="fname" name="fname" value="SONIA"><br>
+    <label for="lname">Last name:</label><br>
+    <input type="text" id="lname" name="lname" value="Doe"><br><br>
+    <input type="submit" value="Submit">
+  </fieldset>
+
+  <p>This is a paragraph.</p>
+  <p id="p_info">This is a paragraph.--assign id.</p>     
+  <p class="p_warning">This is a paragraph.--assign class.</p> 
+  <p id="p_info" class="p_warning">This is a paragraph.--assign id&class.</p>     
+  <p id="p_info" class="p_warning" style="color:brown">This is a paragraph.--assign id&class&style.</p>     
+  <p id="p_info" class="p_warning p_padding" >This is a paragraph.--assign id&class&style.</p>     
+</form>
+
+</body>
+</html>
+
