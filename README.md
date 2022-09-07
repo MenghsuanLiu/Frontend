@@ -1,3 +1,3 @@
 # Frontend
 HTML CSS JS
-Chris前端學習程式
+Chris前端程式學習
