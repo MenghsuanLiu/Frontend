@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 
 <html>
+
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <meta name="google" content="notranslate">
@@ -18,286 +19,323 @@
 
     <link href="css/pass_blue.css" type="text/css" rel="stylesheet" />
     <link href="css/pass_custom.css" type="text/css" rel="stylesheet" />
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!--JQuery-->
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-    
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
     <!--JQuery UI-->
-    <link href="js/jquery-ui/1.12.1.custom/jquery-ui.min.css" rel="stylesheet" type="text/css" />         
-    <script src="js/jquery-ui/1.12.1.custom/jquery-ui.min.js" type="text/javascript"></script>    
+    <link href="js/jquery-ui/1.12.1.custom/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <script src="js/jquery-ui/1.12.1.custom/jquery-ui.min.js" type="text/javascript"></script>
 
     <title>Class Sign-in Form _ soniali</title>
     <style type="text/css">
         .center {
             text-align: center
-        }        
-        .formTitle {
-            font-size:20px;
-            background-color: #006db4;
-            color:white;
         }
- 
+
+        .formTitle {
+            font-size: 20px;
+            background-color: #006db4;
+            color: white;
+        }
     </style>
-    <script>        
+    <script>
         var classid = 'BAS03';
         var classdate = '2022-08-03';
         var trainer = "sonia";
-    </script>    
+    </script>
 </head>
+
 <body>
     <div style="width:80%;margin:0px auto;">
-    <form action="#">    
-        <fieldset>
-        <legend class="col text-center formTitle">Class Sign-in 測試</legend>
-        <div id="div_criteria">        
-            <legend class="tb1">Query Criteria</legend>                                                   
-            <table id="tab_criteria" style="width: 100%">
-                <tr>
-                    <td style="width: 15%" class="title" rowspan="2">Class：</td>
-                    <td style="width: 85%" class="info">
-                        <select id="classid" name="classid">
-                          <option value="BAS01">BAS01_HTML vs. IIS web site</option>
-                          <option value="BAS02">BAS02_CSS/JavaScript/HTML DOM</option>
-                          <option value="BAS03">BAS03_JQuery/Vue.js</option>
-                        </select>
-                    </td>                                    
-                </tr>
-                <tr>                    
-                    <td class="info">
-                        <table style="width: 100%">
+        <form action="#">
+            <fieldset>
+                <legend class="col text-center formTitle">Class Sign-in 測試</legend>
+                <div id="div_criteria">
+                    <legend class="tb1">Query Criteria</legend>
+                    <table id="tab_criteria" style="width: 100%">
+                        <tr>
+                            <td style="width: 15%" class="title" rowspan="2">Class：</td>
+                            <td style="width: 85%" class="info">
+                                <select id="classid" name="classid">
+                                                      <option value="BAS01">BAS01_HTML vs. IIS web site</option>
+                                                      <option value="BAS02">BAS02_CSS/JavaScript/HTML DOM</option>
+                                    <option value="BAS03">BAS03_JQuery/Vue.js</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="info">
+                                <table style="width: 100%">
+                                    <tr>
+                                        <td style="width: 15%" class="title">Class Date：</td>
+                                        <td style="width: 35%"><input type="date" name="classdate" id="classdate"></td>
+                                        <td style="width: 15%" class="title">Trainer：</td>
+                                        <td style="width: 35%"><input type="text" name="trainer" id="trainer"></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="center" colspan="2">
+                                <button id="query" type="button" class="btn btn-primary btn-sm"
+                                    onclick="doQuery()">Query</button>
+                                <button id="abort" type="button" class="btn btn-secondary btn-sm"
+                                    onclick="doAbort(event,this)">Abort</button>
+                            </td>
+                        </tr>
+                    </table>
+                    <br><br>
+                </div>
+                <div id="div_result" style="display:none;">
+                    <legend class="tb1">Query Result</legend>
+                    <i class="fa fa-plus" style="font-size:20px;color:green;cursor: pointer;" onclick="doEntry()"></i>
+                    <table cellspacing="0" cellpadding="6" rules="all" border="1" width="100%">
+                        <thead>
                             <tr>
-                                <td style="width: 15%" class="title">Class Date：</td>
-                                <td style="width: 35%" ><input type="date" name="classdate" id="classdate"></td>
-                                <td style="width: 15%" class="title">Trainer：</td>
-                                <td style="width: 35%" ><input type="text" name="trainer" id="trainer"></td>                                
+                                <th class="title">Del</th>
+                                <th class="title">ClassName</th>
+                                <th class="title">ClassDate</th>
+                                <th class="title">Trainee</th>
+                                <th class="title">Sign-in</th>
+                                <th class="title">Homework(%)</th>
                             </tr>
-                        </table>                        
-                    </td>                                 
-                </tr>                                           
-                <tr>
-                    <td class="center" colspan="2">
-                        <button id="query" type="button" class="btn btn-primary btn-sm" onclick="doQuery()">Query</button>
-                        <button id="abort" type="button" class="btn btn-secondary btn-sm" onclick="doAbort(event,this)">Abort</button>
-                    </td>
-                </tr>
-            </table>
-            <br><br>                    
-        </div>                
-        <div id="div_result" style="display:none;">
-            <legend  class="tb1">Query Result</legend>                                               
-            <i class="fa fa-plus" style="font-size:20px;color:green;cursor: pointer;" onclick="doEntry()"></i>
-            <table cellspacing="0" cellpadding="6" rules="all" border="1" width="100%">
-                <thead>
-                    <tr>
-                        <th class="title">Del</th>                        
-                        <th class="title">ClassName</th>
-                        <th class="title">ClassDate</th>
-                        <th class="title">Trainee</th>
-                        <th class="title">Sign-in</th>
-                        <th class="title">Homework(%)</th>
-                    </tr>                    
-                </thead>
-                <tbody>
-                <tr id="data_01">
-                    <!-- <td class="info"><i class="fafa-minus" onclick="del('data_01')"/></td> -->
-                    <td class="info"><i class="fa fa-minus" style="font-size:20px;color:red; cursor: pointer;" onclick="del('data_01')"/></td>
-                    <td class="info">BAS01_HTML vs. IIS web site</td>
-                    <td class="info">2022/08/28</td>
-                    <td class="info">Sonia</td>
-                    <td class="info"><input type="checkbox" checked id="chk_signin_1" name="chk_signin"/></td>
-                    <td class="info">20%</td>
-                </tr>
-                <tr id="data_02">
-                    <!-- <td class="info"><i class="fafa-minus"  onclick="del('data_02')"/></td> -->
-                    <td class="info"><i class="fa fa-minus" style="font-size:20px;color:red; cursor: pointer;" onclick="del('data_02')"/></td>
-                    <td class="info">BAS02_VS2013 Web Application</td>
-                    <td class="info">2022/09/06</td>
-                    <td class="info">Sonia</td>
-                    <td class="info"><input type="checkbox" id="chk_signin_1" name="chk_signin"/></td>
-                    <td class="info">0%</td>
-                </tr>
-                <tr id="data_03">
-                    <!-- <td class="info"><i class="fafa-minus"  onclick="del('data_02')"/></td> -->
-                    <td class="info"><i class="fa fa-minus" style="font-size:20px;color:red; cursor: pointer;" onclick="del('data_03')"/></td>
-                    <td class="info">BAS03_Java Script</td>
-                    <td class="info">2022/09/13</td>
-                    <td class="info">Chris</td>
-                    <td class="info"><input type="checkbox" id="chk_signin_1" name="chk_signin"/></td>
-                    <td class="info">100%</td>
-                </tr>                
-                </tbody>
-            </table>            
-            <br><br>                            
-        </div>         
-        <div id="div_entry" style="display:none;">       
-            <legend  class="tb1">Entry/Change</legend>                                                                                 
-            <table style="width: 100%">
-                <tr>
-                    <td style="width: 15%" class="title" rowspan="2">Class：</td>
-                    <td style="width: 85%" class="info">
-                        <select id="classid" name="classid" onfocus="defaultIndex=this.selectedIndex" onchange="this.selectedIndex=defaultIndex">
-                          <option value="BAS01">BAS01_HTML vs. IIS web site</option>
-                          <option value="BAS02">BAS02_CSS/JavaScript/HTML DOM</option>
-                          <option value="BAS03">BAS03_JQuery/Vue.js</option>
-                        </select>
-                    </td>                                    
-                </tr>
-                <tr>                    
-                    <td class="info">
-                        <table style="width: 100%">
-                            <tr>
-                                <td style="width: 15%" class="title">Class Date：</td>
-                                <td style="width: 35%" ><input type="date" name="classdate" id="classdate" value="2022-08-31" readonly></td>
-                                <td style="width: 15%" class="title">Trainer：</td>
-                                <td style="width: 35%" ><input type="text" name="trainer" id="trainer" value="sonia" readonly></td>                                
+                        </thead>
+                        <tbody>
+                            <tr id="data_01">
+                                <!-- <tr id="data_01"  style="background-color: none;"> -->
+                                <!-- <td class="info"><i class="fafa-minus" onclick="del('data_01')"/></td> -->
+                                <td class="info"><i class="fa fa-minus"
+                                        style="font-size:20px;color:red; cursor: pointer;" onclick="del('data_01')" />
+                                </td>
+                                <td class="info">BAS01_HTML vs. IIS web site</td>
+                                <td class="info">2022/08/28</td>
+                                <td class="info">Sonia</td>
+                                <td class="info"><input type="checkbox" checked id="chk_signin_1" name="chk_signin" />
+                                </td>
+                                <td class="info">20%</td>
                             </tr>
-                        </table>                        
-                    </td>                                 
-                </tr>                                           
-                <tr>
-                    <td style="width: 15%" class="title" rowspan="2">Trainee：</td>
-                    <td style="width: 85%" class="info">
-                        <select name="class">
-                          <option selected="selected" value="link">link</option>
-                          <option value="stanleyl">stanleyl</option>
-                        </select>
-                    </td>                                    
-                </tr>
-                <tr>                    
-                    <td class="info">
-                        <table style="width: 100%">
-                            <tr>
-                                <td style="width: 15%" class="title">Sign-in：</td>
-                                <td style="width: 35%" ><input type="checkbox" name="signin" id="signin" checked></td>
-                                <td style="width: 15%" class="title">Homework(%):</td>
-                                <td style="width: 35%" ><input type="number" name="homework" id="homework" value="20" min="0" max="100"></td>                                
+                            <tr id="data_02">
+                                <!-- <tr id="data_02" style="background-color: none;">    -->
+                                <!-- <td class="info"><i class="fafa-minus"  onclick="del('data_02')"/></td> -->
+                                <td class="info"><i class="fa fa-minus"
+                                        style="font-size:20px;color:red; cursor: pointer;" onclick="del('data_02')" />
+                                </td>
+                                <td class="info">BAS02_VS2013 Web Application</td>
+                                <td class="info">2022/09/06</td>
+                                <td class="info">Sonia</td>
+                                <td class="info"><input type="checkbox" id="chk_signin_1" name="chk_signin" /></td>
+                                <td class="info">0%</td>
                             </tr>
-                        </table>                        
-                    </td>                                 
-                </tr>   
-                <tr>
-                    <td class="center" colspan="2">
-                        <button id="save" type="button" class="btn btn-primary btn-sm" onclick="doSave()">Save</button>
-                        <button id="abort1" type="button" class="btn btn-secondary btn-sm" onclick="doAbort()">Abort</button>
-                    </td>
-                </tr>
-            </table>
-        </div>               
-        </fieldset>              
-    </form>   
-    </div>     
+                            <tr id="data_03">
+                                <!-- <tr id="data_03"  style="background-color: none;"> -->
+                                <!-- <td class="info"><i class="fafa-minus"  onclick="del('data_02')"/></td> -->
+                                <td class="info"><i class="fa fa-minus"
+                                        style="font-size:20px;color:red; cursor: pointer;" onclick="del('data_03')" />
+                                </td>
+                                <td class="info">BAS03_Java Script</td>
+                                <td class="info">2022/09/13</td>
+                                <td class="info">Chris</td>
+                                <td class="info"><input type="checkbox" id="chk_signin_1" name="chk_signin" /></td>
+                                <td class="info">100%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br><br>
+                </div>
+                <div id="div_entry" style="display:none;">
+                    <legend class="tb1">Entry/Change</legend>
+                    <table style="width: 100%">
+                        <tr>
+                            <td style="width: 15%" class="title" rowspan="2">Class：</td>
+                            <td style="width: 85%" class="info">
+                                <select id="classid" name="classid" onfocus="defaultIndex=this.selectedIndex"
+                                    onchange="this.selectedIndex=defaultIndex">
+                                                      <option value="BAS01">BAS01_HTML vs. IIS web site</option>
+                                                      <option value="BAS02">BAS02_CSS/JavaScript/HTML DOM</option>
+                                    <option value="BAS03">BAS03_JQuery/Vue.js</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="info">
+                                <table style="width: 100%">
+                                    <tr>
+                                        <td style="width: 15%" class="title">Class Date：</td>
+                                        <td style="width: 35%"><input type="date" name="classdate" id="classdate"
+                                                value="2022-08-31" readonly></td>
+                                        <td style="width: 15%" class="title">Trainer：</td>
+                                        <td style="width: 35%"><input type="text" name="trainer" id="trainer"
+                                                value="sonia" readonly></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 15%" class="title" rowspan="2">Trainee：</td>
+                            <td style="width: 85%" class="info">
+                                <select name="class">
+                                                      <option selected="selected" value="link">link</option>
+                                                      <option value="stanleyl">stanleyl</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="info">
+                                <table style="width: 100%">
+                                    <tr>
+                                        <td style="width: 15%" class="title">Sign-in：</td>
+                                        <td style="width: 35%"><input type="checkbox" name="signin" id="signin" checked>
+                                        </td>
+                                        <td style="width: 15%" class="title">Homework(%):</td>
+                                        <td style="width: 35%"><input type="number" name="homework" id="homework"
+                                                value="20" min="0" max="100"></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="center" colspan="2">
+                                <button id="save" type="button" class="btn btn-primary btn-sm"
+                                    onclick="doSave()">Save</button>
+                                <button id="abort1" type="button" class="btn btn-secondary btn-sm"
+                                    onclick="doAbort()">Abort</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </fieldset>
+        </form>
+    </div>
     <div id="dialog-message" title="請檢查~~" class="hide"></div>
-    
+
     <!-- <script src="../js/moment.min.js"></script> -->
-    <script>        
+    <script>
         // var classid = 'BAS03';
         // var classdate = '2022-08-03';
         // var trainer = "sonia";   
         // var today = moment(Date.now()).format("YYYY-MM-DD");    
-        
+
         // `date` is a `Date` object
         const formatYmd = date => date.toISOString().slice(0, 10);
         // Example
-        const today = formatYmd(new Date());      // 2020-05-06        
+        const today = formatYmd(new Date()); // 2020-05-06        
 
-        let loaddata = function(){
-            try{            
+        let loaddata = function () {
+            try {
                 document.getElementById("classid").value = classid;
                 document.getElementById("classdate").value = classdate;
                 document.getElementById("trainer").value = trainer;
-            }catch(ex){
+            } catch (ex) {
                 console.log(ex.message);
-            }                
-        }      
+            }
+        }
 
-        let del = function(dataid){
-            try{                       
+        let del = function (dataid) {
+            try {
                 // document.getElementById(dataid).style.display = "none";
                 var row = document.getElementById(dataid);
                 var val = row.getElementsByTagName("td")[5].innerText;
-                if( val === "100%"){
+                if (val === "100%") {
                     AlertMsg("已經100%不能刪除!!");
                     //alert("已經100%不能刪除!!");
                     return false;
-                    }else{
-                        document.getElementById(dataid).style.display = "none";
+                } else {
+                    document.getElementById(dataid).style.display = "none";
                 }
-            }catch(ex){
+            } catch (ex) {
                 console.log(ex.message);
-            }                
-        }         
-       
+            }
+        }
+
         //  window.onload - 在網頁中所有元素(包括頁面中圖片,css檔案等所有關聯檔案)完全載入到瀏覽器後才執行
-        window.onload = function () {            
-            try{
+        window.onload = function () {
+            try {
                 loaddata();
                 console.log(today);
-            }catch(ex){
+            } catch (ex) {
                 console.log(ex.message);
-            }                
-        }        
+            }
+        }
 
-        function doQuery(){
-            try{
-                document.getElementById("div_result").style.display="block";
-                var tb = document.getElementById("div_result");
-                var tb = tb.getElementsByTagName("table")[0];
-                for (var i = 0, row; row = tb.rows[i]; i++) {
-                    var colval = row.getElementsByTagName("td")[3].innerText;
+        function changeBorderColor() {
+            var table = document.getElementById("table_row").getElementsByTagName("td");
+            for (var i = 0; i < table.length; i++) {
+                var td = table[i];
+                td.style.borderColor = "red";
+            }
+        }
+
+        function doQuery() {
+            try {
+                document.getElementById("div_result").style.display = "block";
+                let tb = document.getElementById("div_result").getElementsByTagName("table")[0];
+                for (let i = 1, row; row = tb.rows[i]; i++) {
+                    let colval = row.getElementsByTagName("td")[3].innerText;
+                    let l = row.id;
+
                     if (colval === "Chris") {
-                        // row.getElementsByTagName("td")[3].style.background-color = "red";
+                        // let r_id = row.id;
+                        document.getElementById(row.id).style.backgroundColor = "yellow";
+                        row.getElementsByTagName("td")[3].style.borderColor = "red";
+                        row.getElementsByTagName("td")[3].style.borderWidth = "3px";
+                        // row.getElementsByTagName("td")[3].style.borderStyle = "solid";
                     }
                 }
-            }catch(ex){
+            } catch (ex) {
                 console.log(ex.message);
-            }                
+            }
         }
-        function doEntry(){
-            try{                
-                document.getElementById("div_entry").style.display="block";                
-                document.getElementById("div_criteria").style.display="none";                
-                document.getElementById("div_result").style.display="none";   
-            }catch(ex){
+
+        function doEntry() {
+            try {
+                document.getElementById("div_entry").style.display = "block";
+                document.getElementById("div_criteria").style.display = "none";
+                document.getElementById("div_result").style.display = "none";
+            } catch (ex) {
                 console.log(ex.message);
-            }                
-        }            
-        function doSave(){
-            try{       
+            }
+        }
+
+        function doSave() {
+            try {
                 let _classdate = document.getElementById("classdate").value;
                 //alert( _classdate );
-                if( _classdate > today ){
+                if (_classdate > today) {
                     AlertMsg("class in future, can not be entry!");
                     return false;
-                }                                  
+                }
                 let _signin = document.getElementById("signin").checked;
                 let _homework = document.getElementById("homework").value;
-                if( _signin && ( _homework === "" || _homework === "0" )){
+                if (_signin && (_homework === "" || _homework === "0")) {
                     AlertMsg("If sign-in,please entry 「homework %」!");
                     return false;
-                }                                    
-                document.getElementById("div_criteria").style.display="block";                
-                document.getElementById("div_result").style.display="none";                
-                document.getElementById("div_entry").style.display="none";   
-            }catch(ex){
+                }
+                document.getElementById("div_criteria").style.display = "block";
+                document.getElementById("div_result").style.display = "none";
+                document.getElementById("div_entry").style.display = "none";
+            } catch (ex) {
                 console.log(ex.message);
-            }                
-        }        
-        function doAbort(e,el){
-            try{
-                document.getElementById("div_criteria").style.display="block";                
-                document.getElementById("div_result").style.display="none";                
-                document.getElementById("div_entry").style.display="none";            
+            }
+        }
+
+        function doAbort(e, el) {
+            try {
+                document.getElementById("div_criteria").style.display = "block";
+                document.getElementById("div_result").style.display = "none";
+                document.getElementById("div_entry").style.display = "none";
 
                 e = e || window.event;
-                console.log("event type:",e.type); //will be the event
-                console.log("event element id:",el.id); //we be the dom element 
-            }catch(ex){
+                console.log("event type:", e.type); //will be the event
+                console.log("event element id:", el.id); //we be the dom element 
+            } catch (ex) {
                 console.log(ex.message);
-            }                   
-        }                
+            }
+        }
 
         function AlertMsg(msg) {
             $("#dialog-message").html(msg);
@@ -310,7 +348,8 @@
                     }
                 }
             });
-        }        
+        }
     </script>
 </body>
+
 </html>
