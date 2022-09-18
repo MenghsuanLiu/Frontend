@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue的練習程式</title>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <!-- jQueryUI -->
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+    <!-- Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+</head>
+<body>
+    <div id="txt"></div>
+    <input type="number" id="num">
+    <div id="app">
+        {{ vue_txt }}
+        {{ vue_nam }}
+        {{ vue_num }}
+        <input type="number" v-model="vue_num" >
+        <hr/>
+        {{vue_personinfo.name}}
+        {{vue_personinfo.image}}
+        <!-- :src(屬性綁定)為v-bind:src的縮寫 -->
+        <img :src="vue_personinfo.image" :alt="vue_personinfo.name">
+        <i class="bi bi-gender-male" 
+            v-if="vue_personinfo.gender === 'male'"></i>
+        <i class="bi bi-gender-female" 
+            v-else></i>
+        {{vue_personinfo.cash}}
+        <!-- <button type="button" @click="vue_personinfo.cash++"> More </button> -->
+        <button type="button" @click="clickAlert"> More </button>
+        <hr/>
+
+        <ul>
+            <li v-for="row in vue_people">
+                {{row.name}}
+                <img :src="row.image" :alt="row.name" width="100">
+                <i class="bi bi-gender-male" 
+                    v-if="row.gender === 'male'"></i>
+                <i class="bi bi-gender-female" 
+                    v-else></i>
+                <hr/>
+                {{row.cash}}
+                <button type="button" @click="row.cash++">增加</button>
+            </li>
+        </ul>
+    </div>
+
+
+
+    <script>
+        console.log($)
+        const myname = "This is Chris!!";
+        $(document).ready(function() {
+            // $("#txt")=>取得DOM元素,text(myname)=>寫入值
+            $("#txt").text(myname);
+            
+            // 監聽 $(this)=>取得DOM元素, val()=>取得值
+            $("#num").on("change", function() {
+                console.log($(this).val());
+            })
+        });
+        // $("#button").on("click", function() {
+        
+        // });
+
+        Vue.createApp({
+            // data=>函式, method=>物件, mounted=>函式
+            data: function() {
+                return{
+                    vue_txt: "I am Chris",
+                    vue_nam: "小劉",
+                    vue_num: 0,
+                    // 物件型式
+                    vue_personinfo: {
+                        name: "小黃",
+                        image:"https://ithelp.ithome.com.tw/images/emoticon/emoticon74.gif",
+                        cash: 1000,
+                        gender: "female",
+                    },
+                    // array
+                    vue_people: [
+                        {
+                            name: "小明",
+                            image: "https://cs-d.ecimg.tw/items/DHAFO5A900EUHVW/000002_1658485035.jpg",
+                            cash: 10000,
+                            gender: "male",
+                        },
+                        {
+                            name: "漂漂阿姨",
+                            image: "https://cs-b.ecimg.tw/items/DHAK8IA900E3VLV/000002_1645495102.jpg",
+                            cash: 4000,
+                            gender: "female",
+                        },
+                        {
+                            name: "阿芮",
+                            image: "https://cs-c.ecimg.tw/items/DHAFODA900F6XV4/000002_1662047994.jpg",
+                            cash: 7000,
+                            gender: "female",
+                        },
+                    ]
+                };
+            },
+            method:{
+                clickAlert() {
+                    alert('我被觸發了');
+                },
+
+            },
+            mounted: function() {
+            }
+            
+        }).mount("#app")
+    </script>
+</body>
+</html>
